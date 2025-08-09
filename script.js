@@ -19,13 +19,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Real-time Clock + Show Jadwal Hari Ini
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
-  const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
+  const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
   const now = new Date();
   const hariIni = days[now.getDay()];
-  const btn = document.getElementById("lihat-jadwal-btn");
+
+  const btnHariIni = document.getElementById("lihat-jadwal-btn");
+  const btnSemua = document.getElementById("lihat-semua-btn");
   const jamEl = document.getElementById("jam");
   const tanggalEl = document.getElementById("tanggal");
 
+  // Update jam & tanggal
   function updateClock() {
     const date = new Date();
     const jam = String(date.getHours()).padStart(2, "0");
@@ -42,11 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
     jamEl.textContent = `${jam}:${menit}:${detik}`;
     tanggalEl.textContent = tanggal;
   }
-
   setInterval(updateClock, 1000);
   updateClock();
 
-  btn.addEventListener("click", () => {
+  // Tombol Lihat Jadwal Hari Ini
+  btnHariIni.addEventListener("click", () => {
     const semuaCard = document.querySelectorAll(".jadwal-card");
     semuaCard.forEach(card => {
       const hariCard = card.getAttribute("data-hari");
@@ -54,6 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hariCard === hariIni) {
         card.classList.remove("hidden");
       }
+    });
+    document.getElementById("jadwal").scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Tombol Lihat Semua Jadwal
+  btnSemua.addEventListener("click", () => {
+    const semuaCard = document.querySelectorAll(".jadwal-card");
+    semuaCard.forEach(card => {
+      card.classList.remove("hidden");
     });
     document.getElementById("jadwal").scrollIntoView({ behavior: "smooth" });
   });
@@ -203,3 +215,39 @@ function toggleEditMode(card, btn) {
     });
   }
 }
+
+// ===========================
+// Dialog Logic with Animations
+// ===========================
+document.addEventListener("DOMContentLoaded", () => {
+  const dialog = document.getElementById("welcome-dialog");
+  const closeBtn = document.querySelector(".dialog-close");
+  const welcomeText = document.getElementById("welcome-text");
+
+  // Tentukan waktu
+  const now = new Date();
+  const hour = now.getHours();
+  let waktu = "pagi";
+
+  if (hour >= 11 && hour < 15) waktu = "siang";
+  else if (hour >= 15 && hour < 18) waktu = "sore";
+  else if (hour >= 18 || hour < 4) waktu = "malam";
+
+  welcomeText.textContent = `Haii, selamat ${waktu}! 👋`;
+
+  // Tambah animasi saat muncul
+  dialog.classList.add("open-animx");
+
+  // Tutup dialog dengan animasi
+  closeBtn.addEventListener("click", () => {
+    dialog.classList.remove("open-animx");
+    dialog.classList.add("close-anim");
+
+    // Setelah animasi close selesai, sembunyikan
+    dialog.addEventListener("animationend", () => {
+      if (dialog.classList.contains("close-anim")) {
+        dialog.style.display = "none";
+      }
+    }, { once: true });
+  });
+});
