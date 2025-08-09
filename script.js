@@ -269,3 +269,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".slide-in");
+
+  const revealOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+
+      if (sectionTop < triggerBottom) {
+        section.classList.add("show");
+      } else {
+        section.classList.remove("show");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+});
