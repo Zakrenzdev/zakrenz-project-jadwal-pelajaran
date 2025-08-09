@@ -1,0 +1,663 @@
+/* ===== Global ===== */
+/* Hapus efek biru saat klik di HP */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  background-image: radial-gradient(circle at 20% 20%, #2a2a2a 0%, #121212 100%);
+}
+
+h1, h2 {
+  font-family: 'Acorn', cursive;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background-color: rgba(9, 9, 11, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-bottom: 1.5px solid #27272A;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Jarak antar tombol, bisa atur ke 0.3rem kalau masih terlalu jauh */
+}
+
+.nav-icons button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #fff;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+  padding: 5rem 2rem;
+  backdrop-filter: blur(6px);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #aaa;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #121212;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #dddddd;
+}
+
+/* ===== Jadwal Section ===== */
+.jadwal {
+  padding: 2rem;
+  text-align: center;
+}
+
+.jadwal h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.jadwal-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  color: #f5f5f5;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideIn 0.6s ease forwards;
+}
+
+/* Staggered animation delay */
+.jadwal-card:nth-child(2) { animation-delay: 0.2s; }
+.jadwal-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* Perbaikan card-header */
+.card-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.card-info h3, .card-info .subtitle {
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.card-info .subtitle {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 0.3rem;
+  font-weight: 400;
+}
+
+/* Mapel list */
+.mapel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.mapel-list li {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  gap: 8px;
+}
+
+.mapel-list li i {
+  color: #ffffff;
+  width: 20px;
+  text-align: center;
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff20;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 0.3rem;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ffffff20;
+  margin: 10px 0;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 20px;
+  background-color: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(6px);
+  border-top: 1.5px solid #2a2a2a;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+}
+
+footer i {
+  margin-right: 6px;
+  color: #888;
+}
+
+/* ICONS */
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.0px;
+  margin-top: 20px;
+}
+
+.icons i {
+  font-size: 16px;
+  color: #fff;
+  border: 1.5px solid #27272A;
+  border-radius: 6px;
+  padding: 8px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.icons i:hover {
+  transform: scale(1.1);
+  background-color: #1f1f1f;
+}
+
+/* ===== Animasi Slide In ===== */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Tombol Style ===== */
+button, .btn-primary {
+  -webkit-tap-highlight-color: transparent; /* Hilangkan efek biru saat diklik */
+  outline: none;
+  border: none;
+}
+
+.nav-icons button,
+.login-btn,
+.btn-primary {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  border: 1px solid #27272A;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+.nav-icons button:hover,
+.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.nav-icons button:active,
+.login-btn:active,
+.btn-primary:active {
+  transform: scale(0.96);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Animasi Masuk Hero dan Jadwal ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.clock-container {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+#jam {
+  font-size: 2rem;
+  font-weight: bold;
+}
+#tanggal {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+/* ===== Dark & Light Mode Styles ===== */
+body.light-mode {
+  background: #f2f2f2;
+  color: #121212;
+  background-image: radial-gradient(circle at 20% 20%, #ffffff, #e0e0e0);
+}
+
+body.light-mode .navbar {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1.5px solid #ccc;
+  color: #121212;
+}
+
+body.light-mode .logo,
+body.light-mode .nav-icons button,
+body.light-mode .jadwal h2,
+body.light-mode .mapel-list li,
+body.light-mode .card-info h3,
+body.light-mode .card-info .subtitle {
+  color: #121212;
+}
+
+body.light-mode .jadwal-card {
+  background: rgba(0, 0, 0, 0.04);
+  color: #121212;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+body.light-mode .mapel-list li i {
+  color: #121212;
+}
+
+body.light-mode .divider {
+  background-color: #00000020;
+}
+
+body.light-mode .hero {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .hero p {
+  color: #333;
+}
+
+body.light-mode footer {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #121212;
+  border-top: 1.5px solid #ccc;
+}
+
+body.light-mode footer i {
+  color: #555;
+}
+
+body.light-mode .icons i {
+  color: #121212;
+  border-color: #ccc;
+}
+
+body.light-mode .icons i:hover {
+  background-color: #ddd;
+}
+
+body.light-mode .nav-icons button:hover,
+body.light-mode .login-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .btn-primary {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.light-mode .btn-primary:hover {
+  background-color: #333;
+}
+
+body.light-mode #jam,
+body.light-mode #tanggal {
+  color: #121212;
+}
+
+/* Transisi smooth untuk pergantian mode */
+body {
+  transition: background-color 0.6s ease, color 0.6s ease, background-image 0.6s ease;
+}
+
+#jam,
+#tanggal {
+  transition: color 0.3s ease;
+}
+
+.navbar,
+.jadwal-card,
+.hero,
+footer,
+.btn-primary,
+.login-btn,
+.icons i {
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+.login-page {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.login-page.hidden {
+  display: none;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInUp 0.5s ease;
+}
+
+.login-container h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  font-family: 'Acorn', sans-serif;
+}
+
+.login-container .login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #444, #000);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.login-container .login-btn:hover {
+  opacity: 0.85;
+}
+
+.bottom-text {
+  color: #ccc;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.bottom-text a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.error-msg {
+  margin-top: 10px;
+  color: #f44336;
+  font-size: 14px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input[type="text"],
+input[type="password"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+/* Saat Fokus (klik/ketik) */
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border: 1px solid #aaa;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Placeholder Warna */
+input::placeholder {
+  color: #aaa;
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px #2e2e3e inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 9999s ease-out;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* biar ga ketabrak icon */
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #ccc;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.toggle-password:hover {
+  color: #fff;
+}
+
+/* Tombol kembali */
+.back-btn {
+  margin-top: 10px;
+  background-color: #555;
+}
+.back-btn:hover {
+  background-color: #333;
+}
+
+/* Animasinya */
+@keyframes openDialogSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes closeDialogSmooth {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(4px);
+  }
+}
+
+.open-anim {
+  animation: openDialogSmooth 300ms ease-in-out forwards;
+}
+
+.close-anim {
+  animation: closeDialogSmooth 300ms ease-in-out forwards;
+}
+
+.edit-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+.edit-btn:hover {
+  transform: scale(1.2);
+}
+.edit-input {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  padding: 4px;
+  border-radius: 6px;
+  width: 80%;
+  margin-left: 5px;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zakrenz | Jadwal Pelajaran</title>
+  <meta name="description" content="Website resmi Zakrenz untuk melihat jadwal pelajaran harian dengan tampilan modern.">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon.jpg">
+  <link rel="apple-touch-icon" sizes="512x512" href="icon.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Acorn&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">Z-CodeX</div>
+    <div class="nav-icons">
+      <button class="lang-btn" onclick="window.open('https://youtube.com/@zakrenzreal?si=5eDLLuXCh_zV_Eb-', '_blank')"><i class="fas fa-globe"></i></button>
+      <button class="theme-btn"><i class="fas fa-moon"></i></button>
+      <button id="masukBtn" class="login-btn">Masuk</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 class="fade-in">Jadwal Pelajaran</h1>
+    <p class="fade-in delay-1">Website ini dirancang oleh Zakrenz, untuk membantumu mengelola jadwal pelajaran harian dengan lebih mudah, praktis, dan efisien.</p>
+    <button id="lihat-jadwal-btn" class="btn-primary fade-in delay-2">Lihat Jadwal Hari Ini</button>
+  </section>
+  
+  <section class="jadwal" id="jadwal">
+    <div class="clock-container">
+      <h3 id="tanggal"></h3>
+      <h1 id="jam"></h1>
+    </div>
+
+    <h2 class="fade-in">Jadwal Hari Ini Adalah</h2>
+
+    <div class="jadwal-card slide-in hidden" data-hari="Senin">
+      <div class="card-header">
+        <div class="card-info">
+          <h3><i class="fas fa-calendar-day"></i> Senin</h3>
+          <p class="subtitle"><i class="fas fa-clock"></i> 07.00 - 15.55</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="mapel-list">
+        <li><i class="fas fa-atom"></i> Fisika</li>
+        <li><i class="fas fa-language"></i> Bahasa Indonesia</li>
+        <li><i class="fas fa-quran"></i> Al-Qur'an Hadist</li>
+        <li><i class="fas fa-laptop-code"></i> Informatika</li>
+        <li><i class="fas fa-book-reader"></i> Bahasa Arab</li>
+        <li><i class="fas fa-square-root-alt"></i> Matematika</li>
+      </ul>
+    </div>
+
+    <div class="jadwal-card slide-in hidden" data-hari="Selasa">
+      <div class="card-header">
+        <div class="card-info">
+          <h3><i class="fas fa-calendar-day"></i> Selasa</h3>
+          <p class="subtitle"><i class="fas fa-clock"></i> 07.00 - 15.55</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="mapel-list">
+        <li><i class="fas fa-square-root-alt"></i> Matematika</li>
+        <li><i class="fas fa-dumbbell"></i> Pendidikan Jasmani</li>
+        <li><i class="fas fa-mosque"></i> Fiqih</li>
+        <li><i class="fas fa-book-reader"></i> Bahasa Arab</li>
+        <li><i class="fas fa-landmark"></i> SKI</li>
+      </ul>
+    </div>
+
+    <div class="jadwal-card slide-in hidden" data-hari="Rabu">
+      <div class="card-header">
+        <div class="card-info">
+          <h3><i class="fas fa-calendar-day"></i> Rabu</h3>
+          <p class="subtitle"><i class="fas fa-clock"></i> 07.00 - 15.55</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="mapel-list">
+        <li><i class="fas fa-language"></i> Bahasa Inggris</li>
+        <li><i class="fas fa-vials"></i> Kimia</li>
+        <li><i class="fas fa-mosque"></i> Aqidah Akhlak</li>
+        <li><i class="fas fa-flag"></i> P5</li>
+      </ul>
+    </div>
+
+    <div class="jadwal-card slide-in hidden" data-hari="Kamis">
+      <div class="card-header">
+        <div class="card-info">
+          <h3><i class="fas fa-calendar-day"></i> Kamis</h3>
+          <p class="subtitle"><i class="fas fa-clock"></i> 07.00 - 15.55</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="mapel-list">
+        <li><i class="fas fa-balance-scale"></i> PPKN</li>
+        <li><i class="fas fa-dna"></i> Biologi</li>
+        <li><i class="fas fa-landmark"></i> Sejarah</li>
+        <li><i class="fas fa-language"></i> Bahasa Indonesia</li>
+        <li><i class="fas fa-coins"></i> Ekonomi</li>
+      </ul>
+    </div>
+
+    <div class="jadwal-card slide-in hidden" data-hari="Jumat">
+      <div class="card-header">
+        <div class="card-info">
+          <h3><i class="fas fa-calendar-day"></i> Jumat</h3>
+          <p class="subtitle"><i class="fas fa-clock"></i> 07.00 - 15.25</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="mapel-list">
+        <li><i class="fas fa-child"></i> Pembiasaan</li>
+        <li><i class="fas fa-palette"></i> Seni Budaya</li>
+        <li><i class="fas fa-users"></i> Sosiologi</li>
+        <li><i class="fas fa-globe-asia"></i> Geografi</li>
+        <li><i class="fas fa-language"></i> Bahasa Inggris</li>
+        <li><i class="fas fa-quran"></i> BTQ dan Tahfidz</li>
+      </ul>
+    </div>
+
+    <div class="jadwal-card slide-in hidden" data-hari="Sabtu">
+      <div class="card-header">
+        <div class="card-info">
+          <h3><i class="fas fa-calendar-day"></i> Sabtu</h3>
+          <p class="subtitle"><i class="fas fa-clock"></i> - </p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="mapel-list">
+        <li><i class="fas fa-ban"></i> Tidak ada jadwal pelajaran</li>
+      </ul>
+    </div>
+
+    <div class="jadwal-card slide-in hidden" data-hari="Minggu">
+       <div class="card-header">
+        <div class="card-info">
+          <h3><i class="fas fa-calendar-day"></i> Minggu</h3>
+          <p class="subtitle"><i class="fas fa-clock"></i> - </p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="mapel-list">
+        <li><i class="fas fa-ban"></i> Libur, tidak ada pelajaran</li>
+      </ul>
+    </div>
+  </section>
+
+    <section id="loginPage" class="login-page hidden chat-dialog-blur">
+      <div class="login-container">
+        <h2>Login ke Zakrenz</h2>
+    
+        <form id="loginForm">
+          <input type="text" id="username" maxlength="19" placeholder="Username" required />
+           <div class="password-wrapper">
+            <input type="password" id="password" maxlength="19" placeholder="Password" required />
+            <span id="togglePassword" class="toggle-password"><i class="fas fa-eye-slash"></i>
+         </span>
+        </div>
+          <button class="login-btn" type="submit">Masuk</button>
+        </form>
+
+        <button id="backBtn" class="login-btn back-btn">Kembali</button>
+
+       <div class="bottom-text">
+      Belum punya akun? <a href="https://wa.me/6287742898019" target="_blank">Hubungi admin</a>
+        </div>
+
+        <p id="loginError" class="error-msg"></p>
+      </div>
+    </section>
+
+  <footer>
+    <p>© 2025 ZakrenzModder. All rights reserved.</p>
+    <div class="icons">
+      <a href="mailto:zakrenzmodder@gmail.com" target="_blank" class="icon"><i class="fas fa-envelope"></i></a>
+      <a href="https://t.me/Zakrenz" target="_blank" class="icon"><i class="fab fa-telegram"></i></a>
+      <a href="https://youtube.com/@zakrenzreal?si=5eDLLuXCh_zV_Eb-" target="_blank" class="icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://github.com/Zakrenzdev" target="_blank" class="icon"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
