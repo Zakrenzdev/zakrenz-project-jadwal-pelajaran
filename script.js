@@ -251,3 +251,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { once: true });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const musicBtn = document.getElementById("music-btn");
+  const musicIcon = musicBtn.querySelector("i");
+  const bgMusic = document.getElementById("bg-music");
+
+  musicBtn.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicIcon.classList.remove("fa-volume-mute");
+      musicIcon.classList.add("fa-volume-up");
+    } else {
+      bgMusic.pause();
+      musicIcon.classList.remove("fa-volume-up");
+      musicIcon.classList.add("fa-volume-mute");
+    }
+  });
+});
